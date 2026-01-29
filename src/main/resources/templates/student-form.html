@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form sinh viên</title>
+</head>
+<body>
+
+<h2 th:text="${student.id == 0 ? 'Thêm sinh viên' : 'Cập nhật sinh viên'}"></h2>
+
+<form th:action="@{/students/save}" th:object="${student}" method="post">
+
+    <label>ID:</label><br>
+    <input type="number" th:field="*{id}" required><br><br>
+
+    <label>Họ tên:</label><br>
+    <input type="text" th:field="*{name}" required><br><br>
+
+    <label>Tuổi:</label><br>
+    <input type="number" th:field="*{age}" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" th:field="*{email}" required><br><br>
+
+    <button type="submit">Lưu</button>
+    <a th:href="@{/students}">Quay lại</a>
+
+</form>
+
+</body>
+</html>
